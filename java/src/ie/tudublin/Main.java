@@ -41,7 +41,8 @@ public class Main
 		penny.setName("Penny");
 		penny.speak();
 
-		audio1();
+		starMap();
+		helloProcessing();
 	}
 	
 }
