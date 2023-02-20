@@ -36,6 +36,7 @@ public class Main
 		penny.speak();
 
 		starMap();
+		helloProcessing();
 	}
 	
 }
