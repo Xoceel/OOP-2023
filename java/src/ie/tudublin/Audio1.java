@@ -92,11 +92,19 @@ public class Audio1 extends PApplet
                     float c = map(i, 0, ab.size(), 0, 255);
                     stroke(c, 255, 255);
                     float f = ab.get(i) * halfH;
+
+                    //wavy lines
+                    /*
+                    line(i,halfH +f,halfH - f, i);
+                    */
+                    
+                    //4 sides
+                    /* 
                     line(i, 0, i, 0 +f);
                     line(0, i, 0 + f, i);                    
                     line(width, i, width - f, i);                                      
                     line(i, height, i, height - f);                    
-
+                    */
                 }
                 break;
         case 1:
