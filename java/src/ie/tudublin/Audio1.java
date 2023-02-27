@@ -83,6 +83,8 @@ public class Audio1 extends PApplet
         float cx = width / 2;
         float cy = height / 2;
 
+
+
         switch (mode) {
 			case 0:
                 background(0);
@@ -90,14 +92,16 @@ public class Audio1 extends PApplet
                 {
                     //float c = map(ab.get(i), -1, 1, 0, 255);
                     float c = map(i, 0, ab.size(), 0, 255);
-                    stroke(c, 255, 255);
+                    stroke(50, 255, 255);
                     float f = ab.get(i) * halfH;
+                    circle(cx, cy, f*smoothedAmplitude);
+
 
                     //wavy lines
                     /*
                     line(i,halfH +f,halfH - f, i);
                     */
-                    
+
                     //4 sides
                     /* 
                     line(i, 0, i, 0 +f);
