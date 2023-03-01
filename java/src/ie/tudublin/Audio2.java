@@ -44,7 +44,7 @@ public class Audio2 extends PApplet{
             stroke(map(i, 0, ab.size(), 0, 255), 255, 255);
             lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.05f);
             float f = abs(lerpedBuffer[i] * half * 2.0f);
-            line(i, half + f, i, half - f);
+            line(i*5, half, i*5, half - f);
         }
 
         fft.forward(ab);
@@ -65,6 +65,8 @@ public class Audio2 extends PApplet{
         fill(255);
         textSize(20);
         text("Freq: " + freq, 100, 100);
+        PitchSpeller p = new PitchSpeller();
+        text("Note: " + p.spell(freq), 100, 120);
 
         float y = map(freq, 1000.0f, 2500.0f, height, 0);
         lerpedY = lerp(lerpedY, y, 0.1f);
