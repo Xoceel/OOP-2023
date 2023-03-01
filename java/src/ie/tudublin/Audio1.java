@@ -97,6 +97,7 @@ public class Audio1 extends PApplet
                     circle(cx, cy, f*smoothedAmplitude);
 
 
+                    
                     //wavy lines
                     /*
                     line(i,halfH +f,halfH - f, i);
