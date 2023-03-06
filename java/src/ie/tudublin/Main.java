@@ -60,8 +60,11 @@ public class Main
 		penny.speak();
 
 		starMap();
+<<<<<<< HEAD
 		helloProcessing();
 		life();
+=======
+>>>>>>> edaf278 (changed one line in main)
 	}
 	
 }
