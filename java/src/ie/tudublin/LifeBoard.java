@@ -31,7 +31,7 @@ public class LifeBoard {
         {
             for (int j = -1 ; j <= 1 ; j ++)
             {
-                if (! (i == 0) && (j == 0))
+                if (i != 0 && j != 0)
                 {
                     if (getCell(i, j))
                     {
@@ -50,28 +50,14 @@ public class LifeBoard {
             for (int col = 0 ; col < size ; col ++)
             {
                 int count = countCells(row, col);
-                if (board[row][col])
+                
+                if (count == 2 || count == 3)
                 {
-                    if (count == 2 || count == 3)
-                    {
-                        next[row][col] = true;
-                    }
-                    else
-                    {
-                        next[row][col] = false;
-                    }
-                    
+                    next[row][col] = true;
                 }
-                else
-                {
-                    if (count == 3)
-                    {
-                        next[row][col] = true;
-                    }
-                    else
-                    {
-                        next[row][col] = false;
-                    }
+                else if (count < 2 || count > 3) {
+                
+                    next[row][col] = false;
                 }
 
                 // < 2 > 3 dies

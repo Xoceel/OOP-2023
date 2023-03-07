@@ -23,6 +23,8 @@ public class Life extends PApplet
 		background(0);
 		board.render();
 		board.applyRules();
+
+		//for(int i = 0; i < 50*)
 		
 	}
 }
