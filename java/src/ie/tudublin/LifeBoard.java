@@ -6,6 +6,7 @@ public class LifeBoard {
     boolean[][] board;
     boolean[][] next;
     
+    
     private int size;
     PApplet p;
 
