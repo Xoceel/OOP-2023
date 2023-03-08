@@ -1,4 +1,5 @@
 package ie.tudublin;
+import java.security.Key;
 
 import processing.core.PApplet;
 
@@ -31,12 +32,13 @@ public class LifeBoard {
         {
             for (int j = -1 ; j <= 1 ; j ++)
             {
-                if (i != 0 && j != 0)
+                if(j == 0 && i == 0){
+                    continue;
+                }
+
+                if (getCell(row + i, col + j))
                 {
-                    if (getCell(i, j))
-                    {
-                        count ++;
-                    }
+                    count ++;
                 }
             }
         } 
@@ -50,22 +52,36 @@ public class LifeBoard {
             for (int col = 0 ; col < size ; col ++)
             {
                 int count = countCells(row, col);
-                
-                if (count == 2 || count == 3)
+                if (board[row][col])
                 {
-                    next[row][col] = true;
+                    if (count == 2 || count == 3)
+                    {
+                        next[row][col] = true;
+                    }
+                    else
+                    {
+                        next[row][col] = false;
+                    }
+                    
                 }
-                else if (count < 2 || count > 3) {
-                
-                    next[row][col] = false;
+                else
+                {
+                    if (count == 3)
+                    {
+                        next[row][col] = true;
+                    }
+                    else
+                    {
+                        next[row][col] = false;
+                    }
                 }
-
                 // < 2 > 3 dies
                 // 2-3 survices
                 // dead with 3 neighboiurs comes to life
             }
         }
-        boolean[][] temp = board;
+        boolean[][] temp;
+        temp = board;
         board = next;
         next = temp;
     }
@@ -85,9 +101,12 @@ public class LifeBoard {
         {
             for (int col = 0 ; col < size ; col ++)
             {
-                float dice = p.random(0, 1);
+                float dice = p.random(0.0f, 1.0f);
                 board[row][col] = (dice <= 0.5f);
             }
+
+            System.out.println("asd");
+            System.out.println("daslf");
         }
     }
 
@@ -95,7 +114,6 @@ public class LifeBoard {
     {
         for(int row = 0 ; row < size ; row ++)
         {
-            p.stroke(255);
             for (int col = 0 ; col < size ; col ++)
             {
                 float x = col * cellWidth;
@@ -107,11 +125,15 @@ public class LifeBoard {
                 }
                 else
                 {
-                    p.noFill();
+                    p.fill(0);
                 }
                 p.rect(x, y, cellWidth, cellWidth);
+                //p.textSize(cellWidth - (size / (cellWidth/2)));
+
+                //p.text("KYS", row*cellWidth, col*cellWidth);
             }
         }
+        System.out.println("asdfl");
     }
 
 
@@ -122,5 +144,25 @@ public class LifeBoard {
     public void setSize(int size) {
         this.size = size;
     } 
+
+    public void kill() {
+        for(int row = 0 ; row < size ; row ++)
+        {
+            for (int col = 0 ; col < size ; col ++) {
+                board[row][col] = false;
+            }
+        }
+    }
+
+    public void cross() {
+        for(int row = 0 ; row < size ; row ++)
+        {
+            for (int col = 0 ; col < size ; col ++) {
+                if (row == size/2 || col == size/2) {
+                    board[row][col] = true;
+                }
+            }
+        }
+    }
     
 }
