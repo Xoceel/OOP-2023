@@ -18,10 +18,9 @@ public class Life extends PApplet
 		colorMode(RGB);
 		background(0);
 		frameRate(5);
-		board = new LifeBoard(100, this);
+		board = new LifeBoard(20, this);
 		board.randomise();
 		frameRate(50);
-
 	}
 
 	public void draw()
@@ -29,7 +28,6 @@ public class Life extends PApplet
 		background(0);
 		board.render();
 		board.applyRules();
-
 	}
 
 	public void keyPressed() {
@@ -54,5 +52,9 @@ public class Life extends PApplet
 				looping  = true;
 			}
 		}
+	}
+
+	public void mouseMoved() {
+		board.mouseDraw(mouseX, mouseY);
 	}
 }

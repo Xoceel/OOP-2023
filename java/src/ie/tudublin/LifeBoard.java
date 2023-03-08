@@ -11,6 +11,7 @@ public class LifeBoard {
     private int size;
     PApplet p;
 
+
     float cellWidth;
 
     public boolean getCell(int row, int col)
@@ -104,9 +105,6 @@ public class LifeBoard {
                 float dice = p.random(0.0f, 1.0f);
                 board[row][col] = (dice <= 0.5f);
             }
-
-            System.out.println("asd");
-            System.out.println("daslf");
         }
     }
 
@@ -133,7 +131,6 @@ public class LifeBoard {
                 //p.text("KYS", row*cellWidth, col*cellWidth);
             }
         }
-        System.out.println("asdfl");
     }
 
 
@@ -152,6 +149,7 @@ public class LifeBoard {
                 board[row][col] = false;
             }
         }
+        System.out.println(cellWidth);
     }
 
     public void cross() {
@@ -164,5 +162,8 @@ public class LifeBoard {
             }
         }
     }
-    
+
+    public void mouseDraw(int y, int x) {
+        board[(int)(x/cellWidth)][(int)(y/cellWidth)] = true;
+    }
 }
