@@ -18,10 +18,10 @@ public class Life extends PApplet
 	public void setup() {
 		colorMode(RGB);
 		background(0);
-		frameRate(5);
-		board = new LifeBoard(100, this);
-		board.randomise();
 		frameRate(50);
+		board = new LifeBoard(40, this);
+		board.randomise();
+		board.displayFunctions();
 	}
 
 	public void draw()

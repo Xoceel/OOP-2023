@@ -1,5 +1,4 @@
 package ie.tudublin;
-import java.security.Key;
 
 import processing.core.PApplet;
 
@@ -149,7 +148,6 @@ public class LifeBoard {
                 board[row][col] = false;
             }
         }
-        System.out.println(cellWidth);
     }
 
     public void cross() {
@@ -202,5 +200,9 @@ public class LifeBoard {
             p.noLoop();
             return false;
         } else p.loop(); return true;
+    }
+
+    public void displayFunctions() {
+        System.out.println("Press Keys To Use:\n1 - Rerandomise Board\n2 - Clear Board\n3 - Draw Cross\n\ne - Cycle Mouse Effects:\nClick For Glider\nClick For Gosper Gun\nRessurection At Cursor");
     }
 }
